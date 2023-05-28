@@ -7,23 +7,89 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51393EBC2A142276005D7E8B /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51393EBB2A142276005D7E8B /* StoreView.swift */; };
+		51394C3B2A198B9600D0059D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51394C3A2A198B9600D0059D /* SettingsView.swift */; };
+		51394C3D2A1A607E00D0059D /* HexColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51394C3C2A1A607E00D0059D /* HexColors.swift */; };
+		51394C3F2A1AC4B900D0059D /* Level20View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51394C3E2A1AC4B900D0059D /* Level20View.swift */; };
+		51394C412A1AC50200D0059D /* Level10View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51394C402A1AC50200D0059D /* Level10View.swift */; };
+		51394C432A1AC50B00D0059D /* Level5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51394C422A1AC50B00D0059D /* Level5View.swift */; };
+		51394C452A1AC50F00D0059D /* Level1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51394C442A1AC50F00D0059D /* Level1View.swift */; };
+		51394C482A1BF1D700D0059D /* Dog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51394C472A1BF1D700D0059D /* Dog+CoreDataProperties.swift */; };
+		51394C4A2A1BF39300D0059D /* ExpBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51394C492A1BF39300D0059D /* ExpBar.swift */; };
+		51394C4D2A1D388500D0059D /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51394C4C2A1D388500D0059D /* TagsView.swift */; };
+		5157CADE2A1D407B00FBADF0 /* Dog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CADD2A1D407B00FBADF0 /* Dog+CoreDataClass.swift */; };
+		5157CAE12A1D490F00FBADF0 /* TagDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAE02A1D490F00FBADF0 /* TagDetails.swift */; };
+		5157CAE42A1D537200FBADF0 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAE22A1D537200FBADF0 /* Task+CoreDataClass.swift */; };
+		5157CAE52A1D537200FBADF0 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAE32A1D537200FBADF0 /* Task+CoreDataProperties.swift */; };
+		5157CAE72A1D539200FBADF0 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAE62A1D539200FBADF0 /* TasksView.swift */; };
+		5157CAED2A1ED12E00FBADF0 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAEC2A1ED12E00FBADF0 /* StatsView.swift */; };
+		5157CAF02A1FFABC00FBADF0 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAEE2A1FFABC00FBADF0 /* Tag+CoreDataClass.swift */; };
+		5157CAF12A1FFABC00FBADF0 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAEF2A1FFABC00FBADF0 /* Tag+CoreDataProperties.swift */; };
+		5157CAF52A2122B900FBADF0 /* CompletedTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAF42A2122B900FBADF0 /* CompletedTimerView.swift */; };
+		5157CAF72A2149A900FBADF0 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAF62A2149A900FBADF0 /* TaskRow.swift */; };
+		517FF3562A13EE1B0047CA1E /* SmartPaws.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 517FF3542A13EE1B0047CA1E /* SmartPaws.xcdatamodeld */; };
+		5181020B2A146604004E3B48 /* DogObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181020A2A146604004E3B48 /* DogObj.swift */; };
+		5181020D2A14A737004E3B48 /* TimerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181020C2A14A737004E3B48 /* TimerControlView.swift */; };
+		5181020F2A14C7E9004E3B48 /* foodData.JSON in Resources */ = {isa = PBXBuildFile; fileRef = 5181020E2A14C7E9004E3B48 /* foodData.JSON */; };
+		518102122A1559DB004E3B48 /* FoodStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518102112A1559DB004E3B48 /* FoodStruct.swift */; };
 		51B21A8F2A0535B3005883BB /* SmartPawsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B21A8E2A0535B3005883BB /* SmartPawsApp.swift */; };
 		51B21A912A0535B3005883BB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B21A902A0535B3005883BB /* ContentView.swift */; };
 		51B21A932A0535B3005883BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B21A922A0535B3005883BB /* Assets.xcassets */; };
 		51B21A962A0535B3005883BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B21A952A0535B3005883BB /* Preview Assets.xcassets */; };
 		51B21A982A0535B3005883BB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B21A972A0535B3005883BB /* Persistence.swift */; };
-		51B21A9B2A0535B3005883BB /* SmartPaws.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 51B21A992A0535B3005883BB /* SmartPaws.xcdatamodeld */; };
+		51E43B502A1569B8008AE4AC /* CoinHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E43B4F2A1569B8008AE4AC /* CoinHistoryView.swift */; };
+		51E43B5B2A1570AB008AE4AC /* CompletedTimers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E43B592A1570AB008AE4AC /* CompletedTimers+CoreDataClass.swift */; };
+		51E43B5C2A1570AB008AE4AC /* CompletedTimers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E43B5A2A1570AB008AE4AC /* CompletedTimers+CoreDataProperties.swift */; };
+		51E43B622A157F7B008AE4AC /* GodPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E43B612A157F7B008AE4AC /* GodPanelView.swift */; };
+		51E43B642A159838008AE4AC /* FoodBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E43B632A159838008AE4AC /* FoodBar.swift */; };
+		51F390E12A1667B000AC38BE /* StoreBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F390E02A1667B000AC38BE /* StoreBlock.swift */; };
+		51F390E42A167B8A00AC38BE /* StoreRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F390E32A167B8A00AC38BE /* StoreRowView.swift */; };
+		51F390E92A16877B00AC38BE /* FoodStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F390E82A16877B00AC38BE /* FoodStoreView.swift */; };
+		51F390EB2A16895900AC38BE /* HapinessBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F390EA2A16895900AC38BE /* HapinessBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51393EBB2A142276005D7E8B /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
+		51394C3A2A198B9600D0059D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		51394C3C2A1A607E00D0059D /* HexColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColors.swift; sourceTree = "<group>"; };
+		51394C3E2A1AC4B900D0059D /* Level20View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level20View.swift; sourceTree = "<group>"; };
+		51394C402A1AC50200D0059D /* Level10View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level10View.swift; sourceTree = "<group>"; };
+		51394C422A1AC50B00D0059D /* Level5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level5View.swift; sourceTree = "<group>"; };
+		51394C442A1AC50F00D0059D /* Level1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level1View.swift; sourceTree = "<group>"; };
+		51394C472A1BF1D700D0059D /* Dog+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dog+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		51394C492A1BF39300D0059D /* ExpBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpBar.swift; sourceTree = "<group>"; };
+		51394C4C2A1D388500D0059D /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		5157CADD2A1D407B00FBADF0 /* Dog+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dog+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5157CAE02A1D490F00FBADF0 /* TagDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDetails.swift; sourceTree = "<group>"; };
+		5157CAE22A1D537200FBADF0 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5157CAE32A1D537200FBADF0 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5157CAE62A1D539200FBADF0 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
+		5157CAEC2A1ED12E00FBADF0 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
+		5157CAEE2A1FFABC00FBADF0 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5157CAEF2A1FFABC00FBADF0 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5157CAF42A2122B900FBADF0 /* CompletedTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTimerView.swift; sourceTree = "<group>"; };
+		5157CAF62A2149A900FBADF0 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
+		517FF3552A13EE1B0047CA1E /* SmartPaws.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartPaws.xcdatamodel; sourceTree = "<group>"; };
+		5181020A2A146604004E3B48 /* DogObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogObj.swift; sourceTree = "<group>"; };
+		5181020C2A14A737004E3B48 /* TimerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerControlView.swift; sourceTree = "<group>"; };
+		5181020E2A14C7E9004E3B48 /* foodData.JSON */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = foodData.JSON; sourceTree = "<group>"; };
+		518102112A1559DB004E3B48 /* FoodStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodStruct.swift; sourceTree = "<group>"; };
 		51B21A8B2A0535B3005883BB /* SmartPaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51B21A8E2A0535B3005883BB /* SmartPawsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPawsApp.swift; sourceTree = "<group>"; };
 		51B21A902A0535B3005883BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		51B21A922A0535B3005883BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51B21A952A0535B3005883BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		51B21A972A0535B3005883BB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		51B21A9A2A0535B3005883BB /* SmartPaws.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartPaws.xcdatamodel; sourceTree = "<group>"; };
 		51B21A9C2A0535B3005883BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51E43B4F2A1569B8008AE4AC /* CoinHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinHistoryView.swift; sourceTree = "<group>"; };
+		51E43B592A1570AB008AE4AC /* CompletedTimers+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompletedTimers+CoreDataClass.swift"; sourceTree = "<group>"; };
+		51E43B5A2A1570AB008AE4AC /* CompletedTimers+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompletedTimers+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		51E43B612A157F7B008AE4AC /* GodPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GodPanelView.swift; sourceTree = "<group>"; };
+		51E43B632A159838008AE4AC /* FoodBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodBar.swift; sourceTree = "<group>"; };
+		51F390E02A1667B000AC38BE /* StoreBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreBlock.swift; sourceTree = "<group>"; };
+		51F390E32A167B8A00AC38BE /* StoreRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreRowView.swift; sourceTree = "<group>"; };
+		51F390E82A16877B00AC38BE /* FoodStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodStoreView.swift; sourceTree = "<group>"; };
+		51F390EA2A16895900AC38BE /* HapinessBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapinessBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +103,70 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51393EB62A13F3AF005D7E8B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				51E43B592A1570AB008AE4AC /* CompletedTimers+CoreDataClass.swift */,
+				51E43B5A2A1570AB008AE4AC /* CompletedTimers+CoreDataProperties.swift */,
+				51394C472A1BF1D700D0059D /* Dog+CoreDataProperties.swift */,
+				5157CADD2A1D407B00FBADF0 /* Dog+CoreDataClass.swift */,
+				5157CAEE2A1FFABC00FBADF0 /* Tag+CoreDataClass.swift */,
+				5157CAEF2A1FFABC00FBADF0 /* Tag+CoreDataProperties.swift */,
+				5157CAE22A1D537200FBADF0 /* Task+CoreDataClass.swift */,
+				5157CAE32A1D537200FBADF0 /* Task+CoreDataProperties.swift */,
+				51B21A972A0535B3005883BB /* Persistence.swift */,
+				517FF3542A13EE1B0047CA1E /* SmartPaws.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		51394C462A1AC5D200D0059D /* FoodStore */ = {
+			isa = PBXGroup;
+			children = (
+				51F390E82A16877B00AC38BE /* FoodStoreView.swift */,
+				51394C442A1AC50F00D0059D /* Level1View.swift */,
+				51394C422A1AC50B00D0059D /* Level5View.swift */,
+				51394C402A1AC50200D0059D /* Level10View.swift */,
+				51394C3E2A1AC4B900D0059D /* Level20View.swift */,
+			);
+			path = FoodStore;
+			sourceTree = "<group>";
+		};
+		51394C4B2A1C118800D0059D /* DogStuff */ = {
+			isa = PBXGroup;
+			children = (
+				5181020A2A146604004E3B48 /* DogObj.swift */,
+				51E43B632A159838008AE4AC /* FoodBar.swift */,
+				51F390EA2A16895900AC38BE /* HapinessBar.swift */,
+				51394C492A1BF39300D0059D /* ExpBar.swift */,
+			);
+			path = DogStuff;
+			sourceTree = "<group>";
+		};
+		5157CADF2A1D490400FBADF0 /* Tasks&Tags */ = {
+			isa = PBXGroup;
+			children = (
+				5157CAE62A1D539200FBADF0 /* TasksView.swift */,
+				5157CAF62A2149A900FBADF0 /* TaskRow.swift */,
+				51394C4C2A1D388500D0059D /* TagsView.swift */,
+				5157CAE02A1D490F00FBADF0 /* TagDetails.swift */,
+			);
+			path = "Tasks&Tags";
+			sourceTree = "<group>";
+		};
+		518102102A1559BF004E3B48 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				51393EBB2A142276005D7E8B /* StoreView.swift */,
+				51394C462A1AC5D200D0059D /* FoodStore */,
+				51E43B4F2A1569B8008AE4AC /* CoinHistoryView.swift */,
+				51F390E02A1667B000AC38BE /* StoreBlock.swift */,
+				518102112A1559DB004E3B48 /* FoodStruct.swift */,
+				5181020E2A14C7E9004E3B48 /* foodData.JSON */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		51B21A822A0535B3005883BB = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +188,16 @@
 			children = (
 				51B21A8E2A0535B3005883BB /* SmartPawsApp.swift */,
 				51B21A902A0535B3005883BB /* ContentView.swift */,
-				51B21A922A0535B3005883BB /* Assets.xcassets */,
-				51B21A972A0535B3005883BB /* Persistence.swift */,
+				51394C3A2A198B9600D0059D /* SettingsView.swift */,
+				5157CAEC2A1ED12E00FBADF0 /* StatsView.swift */,
+				5157CADF2A1D490400FBADF0 /* Tasks&Tags */,
+				51394C4B2A1C118800D0059D /* DogStuff */,
+				51F390E22A167B4F00AC38BE /* HUD */,
+				518102102A1559BF004E3B48 /* Store */,
+				51393EB62A13F3AF005D7E8B /* CoreData */,
+				51F390E52A167B8E00AC38BE /* Old */,
 				51B21A9C2A0535B3005883BB /* Info.plist */,
-				51B21A992A0535B3005883BB /* SmartPaws.xcdatamodeld */,
+				51B21A922A0535B3005883BB /* Assets.xcassets */,
 				51B21A942A0535B3005883BB /* Preview Content */,
 			);
 			path = SmartPaws;
@@ -73,6 +209,25 @@
 				51B21A952A0535B3005883BB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		51F390E22A167B4F00AC38BE /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				5181020C2A14A737004E3B48 /* TimerControlView.swift */,
+				5157CAF42A2122B900FBADF0 /* CompletedTimerView.swift */,
+				51394C3C2A1A607E00D0059D /* HexColors.swift */,
+				51E43B612A157F7B008AE4AC /* GodPanelView.swift */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		51F390E52A167B8E00AC38BE /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				51F390E32A167B8A00AC38BE /* StoreRowView.swift */,
+			);
+			path = Old;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				51B21A962A0535B3005883BB /* Preview Assets.xcassets in Resources */,
+				5181020F2A14C7E9004E3B48 /* foodData.JSON in Resources */,
 				51B21A932A0535B3005883BB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,9 +301,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51B21A9B2A0535B3005883BB /* SmartPaws.xcdatamodeld in Sources */,
+				5181020B2A146604004E3B48 /* DogObj.swift in Sources */,
+				51E43B502A1569B8008AE4AC /* CoinHistoryView.swift in Sources */,
+				517FF3562A13EE1B0047CA1E /* SmartPaws.xcdatamodeld in Sources */,
+				51394C4A2A1BF39300D0059D /* ExpBar.swift in Sources */,
+				51394C432A1AC50B00D0059D /* Level5View.swift in Sources */,
+				5157CAE52A1D537200FBADF0 /* Task+CoreDataProperties.swift in Sources */,
+				5157CADE2A1D407B00FBADF0 /* Dog+CoreDataClass.swift in Sources */,
 				51B21A982A0535B3005883BB /* Persistence.swift in Sources */,
+				5157CAE12A1D490F00FBADF0 /* TagDetails.swift in Sources */,
+				51394C3D2A1A607E00D0059D /* HexColors.swift in Sources */,
+				5157CAF52A2122B900FBADF0 /* CompletedTimerView.swift in Sources */,
+				5157CAED2A1ED12E00FBADF0 /* StatsView.swift in Sources */,
+				51393EBC2A142276005D7E8B /* StoreView.swift in Sources */,
+				51394C3B2A198B9600D0059D /* SettingsView.swift in Sources */,
+				51F390E12A1667B000AC38BE /* StoreBlock.swift in Sources */,
+				5157CAF72A2149A900FBADF0 /* TaskRow.swift in Sources */,
+				51F390E92A16877B00AC38BE /* FoodStoreView.swift in Sources */,
+				51E43B622A157F7B008AE4AC /* GodPanelView.swift in Sources */,
+				51394C3F2A1AC4B900D0059D /* Level20View.swift in Sources */,
+				5181020D2A14A737004E3B48 /* TimerControlView.swift in Sources */,
+				5157CAF02A1FFABC00FBADF0 /* Tag+CoreDataClass.swift in Sources */,
+				51E43B5C2A1570AB008AE4AC /* CompletedTimers+CoreDataProperties.swift in Sources */,
+				51394C4D2A1D388500D0059D /* TagsView.swift in Sources */,
+				51F390EB2A16895900AC38BE /* HapinessBar.swift in Sources */,
+				51E43B5B2A1570AB008AE4AC /* CompletedTimers+CoreDataClass.swift in Sources */,
+				5157CAE42A1D537200FBADF0 /* Task+CoreDataClass.swift in Sources */,
+				5157CAF12A1FFABC00FBADF0 /* Tag+CoreDataProperties.swift in Sources */,
+				518102122A1559DB004E3B48 /* FoodStruct.swift in Sources */,
+				5157CAE72A1D539200FBADF0 /* TasksView.swift in Sources */,
+				51394C482A1BF1D700D0059D /* Dog+CoreDataProperties.swift in Sources */,
 				51B21A912A0535B3005883BB /* ContentView.swift in Sources */,
+				51394C412A1AC50200D0059D /* Level10View.swift in Sources */,
+				51394C452A1AC50F00D0059D /* Level1View.swift in Sources */,
+				51F390E42A167B8A00AC38BE /* StoreRowView.swift in Sources */,
+				51E43B642A159838008AE4AC /* FoodBar.swift in Sources */,
 				51B21A8F2A0535B3005883BB /* SmartPawsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,12 +539,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		51B21A992A0535B3005883BB /* SmartPaws.xcdatamodeld */ = {
+		517FF3542A13EE1B0047CA1E /* SmartPaws.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				51B21A9A2A0535B3005883BB /* SmartPaws.xcdatamodel */,
+				517FF3552A13EE1B0047CA1E /* SmartPaws.xcdatamodel */,
 			);
-			currentVersion = 51B21A9A2A0535B3005883BB /* SmartPaws.xcdatamodel */;
+			currentVersion = 517FF3552A13EE1B0047CA1E /* SmartPaws.xcdatamodel */;
 			path = SmartPaws.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

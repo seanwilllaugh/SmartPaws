@@ -1,0 +1,19 @@
+{
+"foods": [
+    {
+    "name": "Kibble",
+    "price": 10,
+    "happiness_level": 5
+    },
+    {
+    "name": "Steak",
+    "price": 50,
+    "happiness_level": 20
+    },
+    {
+    "name": "Chicken",
+    "price": 30,
+    "happiness_level": 10
+    }
+]
+}
