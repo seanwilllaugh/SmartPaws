@@ -6,6 +6,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var viewContext
     @Environment(\.scenePhase) var scenePhase
     @FetchRequest(sortDescriptors: [], animation: .default) var completedtimers: FetchedResults<CompletedTimers>
+    @FetchRequest(sortDescriptors: [], animation: .default) var tasks: FetchedResults<Task>
     @FetchRequest(sortDescriptors: [], animation: .default) var dogobj: FetchedResults<Dog>
     @FetchRequest(sortDescriptors: [], animation: .default) var tags: FetchedResults<Tag>
     
@@ -37,32 +38,289 @@ struct ContentView: View {
             ZStack {
                 // Background Color
                 Rectangle()
-                    .fill(Color.init(red: 255/255, green: 235/255, blue: 204/255))
+                    .fill(Color(hex: findHex(color: "Light French Beige", hexColors: hexColors))!)
                     .edgesIgnoringSafeArea(.all)
                 
-                Image("livingRoom")
-                    .resizable()
-                    .scaledToFill()
-                    .offset(x: -1, y: -4)
-                    
-                DogObj()
-                
-                if(showingtagPopup){
-                    ZStack { // 4
-                        Rectangle()
-                            .frame(width: 200, height: 30)
-                            .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
-                            .border(.black, width: 3)
-                        
-                        Picker("Select a Tag", selection: $tagSelection){
-                            ForEach(tagList, id: \.self){ tag in
-                                Text(tag)
+                VStack(){
+                    // Settings
+                    HStack{
+                        NavigationLink{
+                            SettingsView()
+                        } label: {
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 110, height: 40)
+                                    .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
+                                    .cornerRadius(5)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, lineWidth: 2)
+                                    )
+                                HStack{
+                                    Image(systemName: "gear")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                        .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                                    Text("Settings")
+                                        .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                                        .fontDesign(.rounded)
+                                        .fontWeight(.medium)
+                                        .font(.system(size: 14))
+                                }
                             }
                         }
+                        .padding(.leading)
                         
+                        
+                        VStack(){
+                            Text(currentTime)
+                                .font(.system(size: 34))
+                                .fontWeight(.medium)
+                                .fontDesign(.rounded)
+                                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors))!)
+                                .onReceive(timeCurrent){ _ in
+                                    updateTime()
+                                }
+                            Text(Date(), style: .date)
+                                .font(.system(size: 14))
+                                .fontWeight(.heavy)
+                                .fontDesign(.rounded)
+                                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors))!)
+                        }
+                        .frame(maxWidth: .infinity)
+                        
+                        
+                        // Store
+                        NavigationLink{
+                            StoreView()
+                        } label: {
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 110, height: 40)
+                                    .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
+                                    .cornerRadius(5)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, lineWidth: 2)
+                                    )
+                                HStack{
+                                    Image(systemName: "hockey.puck.fill")
+                                        .resizable()
+                                        .frame(width: 20, height: 20)
+                                        .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                                    Text("\(dogobj.last!.coins)")
+                                        .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                                        .fontDesign(.rounded)
+                                        .fontWeight(.medium)
+                                }
+                            }
+                        }
+                        .padding(.trailing)
                         
                     }
-                    .offset(y:150)
+                    .frame(maxWidth: .infinity, minHeight: 100)
+                    .padding(.top, -20)
+                    
+                    Button{
+                        showingTaskView.toggle()
+                    } label: {
+                        ZStack{
+                            Rectangle()
+                                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                                .cornerRadius(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!, lineWidth: 4)
+                                )
+                            
+                            VStack{
+                                Text("Coming Up")
+                                    .font(.title2)
+                                    .fontWeight(.medium)
+                                    .fontDesign(.rounded)
+                                    .foregroundColor(Color(hex: findHex(color: "Black", hexColors: hexColors)))
+                                    .padding(.top, 8)
+                                
+                                ScrollView{
+                                    ForEach(tasks) { task in
+                                        if(task.isCompleted == false){
+                                            if(task.duedate! < Date().advanced(by: 172800)){
+                                                TaskRow(task: task)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .frame(width: 300, height: 180)
+                        .padding(.top, -10)
+                    }
+                    
+                    Spacer()
+                    
+                    // TIMER
+                    TimerControlView(timerValue: $timerValue, isTimerRunning: isTimerRunning, toggleTimer: toggleTimer).preferredColorScheme(.light)
+                        .padding(.top)
+                        .onTapGesture {
+                            // START/STOP TIMER
+                            toggleTimer()
+                        }
+                        .onLongPressGesture(minimumDuration: 0.1){
+                            // TAG POPUP
+                            showingtagPopup.toggle()
+                        }
+                        .sheet(isPresented: $showingTagView) {
+                            TagsView()
+                        }
+                        .sheet(isPresented: $showingTaskView) {
+                            TasksView()
+                        }
+                        .padding(.top, 20)
+                    
+                    Spacer()
+                    
+                    HStack{
+                        VStack{
+                            FoodBar(targetDate: dogobj.last!.lastfed!.advanced(by: 86400))
+                            Image("hunger")
+                                .resizable()
+                                .frame(width:18, height: 18)
+                        }
+                        
+                        VStack{
+                            ExpBar(expPoints: Int(dogobj.last!.experience), level: Int(dogobj.last!.level))
+                            Text("Level \(getDogLevel(dog: dogobj.last!))")
+                                .fontWeight(.medium)
+                                .fontDesign(.rounded)
+                                .frame(height: 18)
+                                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                        }
+                        
+                        VStack{
+                            HapinessBar(hapiness: dogobj.last!.hapiness, targetDate: dogobj.last!.lasthappy!.advanced(by: 172800))
+                            Image(systemName:"smiley")
+                                .resizable()
+                                .frame(width:18, height: 18)
+                                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors))!)
+                        }
+                    }
+                    .offset(y: 35)
+                    
+                    Spacer()
+                    
+                    Button{
+                        showingTagView.toggle()
+                    } label: {
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 200, height: 50)
+                                .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
+                                .cornerRadius(10.0)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, lineWidth: 2)
+                                )
+                            HStack{
+                                Image(systemName: "tag.fill")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                                    .padding(.trailing)
+                                    .padding(.leading)
+                                Text("Tags")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .fontDesign(.rounded)
+                                    .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                                Spacer()
+                            }
+                            .frame(width: 200, height: 50)
+                        }
+                    }
+                    .offset(y: 15)
+                    
+                    NavigationLink{
+                        StatsView()
+                    } label: {
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 200, height: 50)
+                                .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
+                                .cornerRadius(10.0)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, lineWidth: 2)
+                                )
+                            HStack{
+                                Image(systemName: "chart.pie.fill")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                                    .padding(.trailing)
+                                    .padding(.leading)
+                                Text("Stats")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                    .fontDesign(.rounded)
+                                    .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                                Spacer()
+                            }
+                            .frame(width: 200, height: 50)
+                        }
+                    }
+                    .offset(y: 15)
+                    .padding(.bottom)
+                }
+                if(showingtagPopup){
+                    TagSelection(tagSelection: $tagSelection)
+                        .offset(y:150)
+                }
+                
+                if(isTimerRunning || isTimerPaused){
+                    HStack{
+                        Button{
+                            if(isTimerRunning){
+                                pauseTimer()
+                            } else if(isTimerPaused){
+                                startTimer()
+                            }
+                        } label: {
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 50, height: 50)
+                                    .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
+                                    .cornerRadius(5)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, lineWidth: 2)
+                                    )
+                                Image(systemName: "playpause")
+                                    .frame(width: 40, height: 40)
+                                    .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                            }
+                        }
+                        .offset(x: -70)
+                        
+                        Button{
+                            stopTimer()
+                        } label: {
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 50, height: 50)
+                                    .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
+                                    .cornerRadius(5)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, lineWidth: 2)
+                                    )
+                                Image(systemName: "trash.square")
+                                    .frame(width: 40, height: 40)
+                                    .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                            }
+                        }
+                        .offset(x: 70)
+                    }
+                    .offset(y: 50)
                 }
                 
                 if(showingCompletedTimer){
@@ -76,178 +334,20 @@ struct ContentView: View {
                             }label: {
                                 Rectangle()
                                     .frame(width:100, height: 40)
-                                    .border(.black, width:3)
-                                    .foregroundColor(Color(hex: findHex(color: "Dark Brown", hexColors: hexColors)))
+                                    .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
                                     .cornerRadius(5)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 5)
+                                            .stroke(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, lineWidth: 2)
+                                    )
                             }
                             Text("Dismiss")
+                                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
                         }
                         .offset(y: 120)
                     }
                 }
 
-                VStack(){
-                    
-                    // Hunger & Hapiness Bars
-                    HStack{
-                        VStack(alignment: .center){
-                            HStack{
-                                Image("hunger")
-                                    .resizable()
-                                    .frame(width:18, height: 18)
-                                FoodBar(targetDate: dogobj.last!.lastfed!.advanced(by: 86400))
-                            }
-                            HStack{
-                                Image(systemName:"smiley")
-                                    .resizable()
-                                    .frame(width:18, height: 18)
-                                    .foregroundColor(.black)
-                                HapinessBar(hapiness: dogobj.last!.hapiness)
-                            }
-                        }
-                        .offset(x: 10, y: 20)
-                        .frame(maxWidth: 120)
-                        
-                        Spacer()
-                        
-                        VStack(){
-                            Text(currentTime)
-                                .font(.system(size: 34))
-                                .fontWeight(.medium)
-                                .foregroundColor(.white)
-                                .onReceive(timeCurrent){ _ in
-                                    updateTime()
-                                }
-                            Text(Date(), style: .date)
-                                .font(.system(size: 14))
-                                .fontWeight(.heavy)
-                                .foregroundColor(.white)
-                        }
-                        .frame(maxWidth: .infinity)
-                        .offset(y: 20)
-                        
-                        Spacer()
-                        
-                        // Setting & Store
-                        VStack{
-                            HStack{
-                                NavigationLink{
-                                    SettingsView()
-                                }label: {
-                                    ZStack{
-                                        Circle()
-                                            .frame(width: 55, height: 55)
-                                            .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
-                                        Image(systemName: "gear.circle")
-                                            .resizable()
-                                            .frame(width: 25, height: 25)
-                                            .foregroundColor(.black)
-                                    }
-                                }
-                                .offset(x: -7)
-                                
-                                NavigationLink{
-                                    StoreView()
-                                }label: {
-                                    ZStack{
-                                        Circle()
-                                            .frame(width: 55, height: 55)
-                                            .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
-                                        HStack{
-                                            Image(systemName: "hockey.puck.circle")
-                                                .resizable()
-                                                .frame(width: 15, height: 15)
-                                                .foregroundColor(.black)
-                                                .offset(x: 2.5)
-                                            Text(String(dogobj.last!.coins))
-                                                .foregroundColor(.black)
-                                                .font(.system(size: 14))
-                                                .offset(x: -2.5)
-                                        }
-                                    }
-                                }
-                            }
-                            
-                            NavigationLink{
-                                StatsView()
-                            } label: {
-                                ZStack{
-                                    Rectangle()
-                                        .frame(width: 120, height: 30)
-                                        .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
-                                        .cornerRadius(5)
-                                    Image(systemName: "chart.pie")
-                                        .frame(width: 25, height: 25)
-                                        .foregroundColor(.black)
-                                }
-                            }
-                            .offset(x: -2)
-                        }
-                        .offset(x: -10, y: 20)
-                        .frame(maxWidth: 120)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.top)
-                    
-                    Spacer()
-                
-                    HStack{
-                        Button{
-                            showingTagView.toggle()
-                        } label: {
-                            ZStack{
-                                Circle()
-                                    .frame(width: 55, height: 55)
-                                    .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
-                                Image(systemName: "tag")
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                                    .foregroundColor(.black)
-                            }
-                            
-                        }
-                        .offset(y: 250)
-                        .padding(.leading)
-                        
-                        Spacer()
-                        
-                        // TIMER
-                        TimerControlView(timerValue: $timerValue, isTimerRunning: isTimerRunning, toggleTimer: toggleTimer).preferredColorScheme(.light)
-                            .onTapGesture {
-                                // START/STOP TIMER
-                                toggleTimer()
-                            }
-                            .offset(y: 250)
-                            .onLongPressGesture(minimumDuration: 0.1){
-                                // TAG POPUP
-                                showingtagPopup.toggle()
-                            }
-                        
-                        Spacer()
-                        
-                        Button{
-                            showingTaskView.toggle()
-                        } label: {
-                            ZStack{
-                                Circle()
-                                    .frame(width: 55, height: 55)
-                                    .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
-                                Image(systemName: "checkmark.square")
-                                    .resizable()
-                                    .frame(width: 25, height: 25)
-                                    .foregroundColor(.black)
-                            }
-                        }
-                        .offset(y: 250)
-                        .padding(.trailing)                    }
-                    .sheet(isPresented: $showingTagView) {
-                        TagsView()
-                    }
-                    .sheet(isPresented: $showingTaskView) {
-                        TasksView()
-                    }
-                    Spacer()
-                }
             }
         }
         .onAppear(perform: {
@@ -266,6 +366,7 @@ struct ContentView: View {
                 newDog.hapiness = 50.00
                 newDog.level = 1
                 newDog.experience = 0
+                newDog.lasthappy = Date()
                 
                 try? viewContext.save()
             }
@@ -305,6 +406,7 @@ struct ContentView: View {
         }
         
         timerLength = timerValue
+        isTimerRunning = true
         isTimerPaused = false
         
         // Timer
@@ -332,7 +434,11 @@ struct ContentView: View {
     }
     
     private func pauseTimer(){
+        cancellable?.cancel()
         
+        isTimerRunning = false
+        isTimerPaused = true
+        print("Timer Paused")
     }
     
     // Timer Completed Function

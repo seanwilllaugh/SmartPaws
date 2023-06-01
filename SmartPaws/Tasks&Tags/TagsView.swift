@@ -17,7 +17,7 @@ struct TagsView: View {
     @State private var showingTagDetails = false
     
     let hexColors = readColors()
-    let colorList = ["Red", "Blue", "Green", "Yellow", "Purple", "Brown"]
+    let colorList = ["Deep Aquamarine", "Deep Peach", "Deep Coffee", "Deep Pink", "Deep Red", "Deep Violet", "Deep Sky Blue", "Deep Lilac", "Deep Lemon", "Deep Green"]
     
     func saveTag() {
         let newTag = Tag(context: viewContext)
@@ -40,7 +40,7 @@ struct TagsView: View {
         NavigationView{
             ZStack{
                 Rectangle()
-                    .fill(Color.init(red: 255/255, green: 235/255, blue: 204/255))
+                    .fill(Color(hex: findHex(color: "Light French Beige", hexColors: hexColors))!)
                     .edgesIgnoringSafeArea(.all)
                 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -50,12 +50,18 @@ struct TagsView: View {
                         .font(.largeTitle)
                         .padding(.top)
                     
+                    Spacer()
+                    
                     ZStack{
                         Rectangle()
                             .border(.black)
                             .cornerRadius(10)
                             .frame(width: 300, height: 120)
-                            .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
+                            .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!, lineWidth: 4)
+                            )
                         VStack{
                             Text("Create a New Tag")
                                 .font(.title2)
@@ -63,9 +69,11 @@ struct TagsView: View {
                             TextField("Name of Tag", text: $name)
                                 .frame(width: 150, alignment: .center)
                                 .cornerRadius(5)
-                                .border(.black)
+                                .border(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!)
                             Picker("Color of Tag", selection: $color){
                                 ForEach(colorList, id: \.self) {
+                                    //Image(systemName: "tag.fill")
+                                      //  .foregroundColor(Color(hex: findHex(color: "\($0)", hexColors: hexColors)))
                                     Text("\($0)")
                                 }
                             }
@@ -76,40 +84,67 @@ struct TagsView: View {
                     } label: {
                         ZStack{
                             Rectangle()
-                                .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
-                                .frame(width: 300, height: 20)
-                                .border(.black)
+                                .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
+                                .frame(width: 200, height: 50)
                                 .cornerRadius(5)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, lineWidth: 2)
+                                )
                             Text("Save Tag")
-                                .foregroundColor(.black)
+                                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                                .font(.title)
                         }
                         .frame(alignment: .center)
                     }
                     
-                    Text("Current Tags")
-                        .font(.title2)
+                    Spacer()
                     
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-                    ScrollView{
-                        ForEach(tags) { tag in
-                            HStack{
-                                NavigationLink{
-                                    TagDetails(tag: tag)
-                                } label: {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 360)
+                            .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                            .cornerRadius(10.0)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!, lineWidth: 4)
+                            )
+                        
+                        VStack{
+                            Text("Current Tags")
+                                .font(.title2)
+                                .padding(.top)
+                            
+                            ScrollView{
+                                ForEach(tags) { tag in
                                     HStack{
-                                        Image(systemName: "tag.fill")
-                                            .foregroundColor(Color(hex: findHex(color: tag.color!, hexColors: hexColors)))
-                                        Text(tag.name!)
-                                            .foregroundColor(.black)
+                                        NavigationLink{
+                                            TagDetails(tag: tag)
+                                        } label: {
+                                            HStack{
+                                                Image(systemName: "tag.fill")
+                                                    .foregroundColor(Color(hex: findHex(color: tag.color!, hexColors: hexColors)))
+                                                    .padding(.leading)
+                                                Text(tag.name!)
+                                                    .foregroundColor(.black)
+                                                Spacer()
+                                            }
+                                            .frame(width: 355, height: 50)
+                                        }
                                     }
-                                    .frame(width: 200, height: 50)
                                 }
                             }
                         }
                     }
+                    .frame(height: 400)
+                    
+                    Spacer()
                 }
             }
+            .onAppear(perform: {
+                try? viewContext.save()
+            })
         }
     }
 }

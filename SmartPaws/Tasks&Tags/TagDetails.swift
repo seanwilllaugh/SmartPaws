@@ -20,44 +20,88 @@ struct TagDetails: View {
     
     func deleteTag() {
         viewContext.delete(tag)
-        //try? viewContext.save()
         dismiss()
     }
     
     var body: some View {
         ZStack{
             Rectangle()
-                .fill(Color.init(red: 255/255, green: 235/255, blue: 204/255))
+                .fill(Color(hex: findHex(color: "Light French Beige", hexColors: hexColors))!)
                 .edgesIgnoringSafeArea(.all)
             
             VStack{
-                Text("Name  : \(tag.name!)")
-                Text("Color : \(tag.color!)")
-                
+                ZStack{
+                    Rectangle()
+                        .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                        .cornerRadius(10)
+                        .frame(width: 300, height: 100)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!, lineWidth: 4)
+                        )
+                    
+                    HStack{
+                        Image(systemName: "tag.fill")
+                            .resizable()
+                            .foregroundColor(Color(hex: findHex(color: tag.color!, hexColors: hexColors)))
+                            .frame(width: 25, height: 25)
+                        Text(tag.name!)
+                            .font(.title)
+                    }
+                    .frame(width: 280, height: 100)
+                }
+                    
+                    
                 Button{
                     deleteTag()
                 } label: {
-                    Rectangle()
-                        .border(.black)
-                        .cornerRadius(10)
-                        .frame(width: 100, height: 25)
-                        .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
+                    ZStack{
+                        Rectangle()
+                            .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
+                            .frame(width: 200, height: 50)
+                            .border(.black)
+                            .cornerRadius(5)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, lineWidth: 4)
+                            )
+                        Text("Delete Tag")
+                            .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                            .font(.title)
+                    }
                 }
-                
-                Text("Current Tasks")
-                    .font(.title2)
-                
-                ScrollView{
-                    ForEach(tasks) { task in
-                        if(task.tasktag == tag.name) {
-                            if(task.isCompleted == false){
-                                TaskRow(task: task)
+                    
+                ZStack{
+                    Rectangle()
+                        .frame(width: 360)
+                        .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                        .cornerRadius(10.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!, lineWidth: 4)
+                        )
+                    
+                    VStack{
+                        Text("Current Tasks")
+                            .font(.title2)
+                            .padding(.top)
+                        
+                        ScrollView{
+                            ForEach(tasks) { task in
+                                if(task.tasktag == tag.name) {
+                                    if(task.isCompleted == false){
+                                        TaskRow(task: task)
+                                    }
+                                }
                             }
+                            .frame(width: 355)
                         }
                     }
                 }
-                .frame(width: 300, height: 300)
+                
+                Spacer()
             }
         }
     }
 }
+

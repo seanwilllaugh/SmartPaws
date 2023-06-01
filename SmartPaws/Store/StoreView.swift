@@ -19,25 +19,35 @@ struct StoreView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .fill(Color.init(red: 255/255, green: 235/255, blue: 204/255))
+                .fill(Color(hex: findHex(color: "Light French Beige", hexColors: hexColors))!)
                 .edgesIgnoringSafeArea(.all)
-            
-            Image("livingRoom")
-                .resizable()
-                .scaledToFill()
-                .offset(x: -1, y: -4)
-                .blur(radius: 10)
             
             VStack{
                 HStack{
-                    Image(systemName: "hockey.puck.fill")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(.yellow)
-                        .padding(.leading)
-                    Text("\(dogobj.last!.coins)")
-                        .font(.system(size:32))
-                        .foregroundColor(.white)
+                    ZStack{
+                        
+                        Rectangle()
+                            .frame(width: 120, height: 40)
+                            .cornerRadius(5)
+                            .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, lineWidth: 2)
+                            )
+                            .shadow(color: Color(hex: findHex(color: "Main Blue", hexColors: hexColors))!, radius: 3)
+                            .padding(.leading)
+                        
+                        HStack{
+                            Image(systemName: "hockey.puck.fill")
+                                .resizable()
+                                .frame(width: 25, height: 25)
+                                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                                .padding(.leading)
+                            Text("\(dogobj.last!.coins)")
+                                .font(.system(size:32))
+                                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                        }
+                    }
                     
                     Spacer()
                     
@@ -46,15 +56,19 @@ struct StoreView: View {
                     } label: {
                         ZStack{
                             Circle()
-                                .frame(width: 50, height: 50)
-                                .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
+                                .frame(width: 55, height: 55)
+                                .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
+                                .shadow(color: Color(hex: findHex(color: "Main Blue", hexColors: hexColors))!, radius: 3)
+                            Circle()
+                                .stroke(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, style: StrokeStyle(lineWidth: 2))
+                                .frame(width: 55, height: 55)
                             Image(systemName: "clock.fill")
-                                .foregroundColor(.black)
+                                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
                         }
                     }
                     .padding(.trailing)
                 }
-                .padding(.top, 50)
+                //.padding(.top)
                 ScrollView{
                     FoodStoreView()
                 }

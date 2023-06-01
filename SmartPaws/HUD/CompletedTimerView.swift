@@ -20,8 +20,12 @@ struct CompletedTimerView: View {
         ZStack { // 4
             Rectangle()
                 .frame(width: 300, height: 400)
-                .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
-                .border(.black, width: 3)
+                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                .cornerRadius(10)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!, lineWidth: 4)
+                )
             
             VStack{
                 Text("Study Session Completed!")

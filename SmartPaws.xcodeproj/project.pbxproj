@@ -27,6 +27,11 @@
 		5157CAF12A1FFABC00FBADF0 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAEF2A1FFABC00FBADF0 /* Tag+CoreDataProperties.swift */; };
 		5157CAF52A2122B900FBADF0 /* CompletedTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAF42A2122B900FBADF0 /* CompletedTimerView.swift */; };
 		5157CAF72A2149A900FBADF0 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAF62A2149A900FBADF0 /* TaskRow.swift */; };
+		5157CAF92A23D02100FBADF0 /* CoinHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAF82A23D02100FBADF0 /* CoinHistoryView.swift */; };
+		5157CAFC2A25518F00FBADF0 /* CoinGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAFB2A25518F00FBADF0 /* CoinGraphView.swift */; };
+		5157CAFE2A25519400FBADF0 /* TimeGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAFD2A25519400FBADF0 /* TimeGraphView.swift */; };
+		5157CB002A25519C00FBADF0 /* ExpGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CAFF2A25519C00FBADF0 /* ExpGraphView.swift */; };
+		5157CB042A2567DA00FBADF0 /* TagSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5157CB032A2567DA00FBADF0 /* TagSelection.swift */; };
 		517FF3562A13EE1B0047CA1E /* SmartPaws.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 517FF3542A13EE1B0047CA1E /* SmartPaws.xcdatamodeld */; };
 		5181020B2A146604004E3B48 /* DogObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181020A2A146604004E3B48 /* DogObj.swift */; };
 		5181020D2A14A737004E3B48 /* TimerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5181020C2A14A737004E3B48 /* TimerControlView.swift */; };
@@ -37,7 +42,6 @@
 		51B21A932A0535B3005883BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B21A922A0535B3005883BB /* Assets.xcassets */; };
 		51B21A962A0535B3005883BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51B21A952A0535B3005883BB /* Preview Assets.xcassets */; };
 		51B21A982A0535B3005883BB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B21A972A0535B3005883BB /* Persistence.swift */; };
-		51E43B502A1569B8008AE4AC /* CoinHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E43B4F2A1569B8008AE4AC /* CoinHistoryView.swift */; };
 		51E43B5B2A1570AB008AE4AC /* CompletedTimers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E43B592A1570AB008AE4AC /* CompletedTimers+CoreDataClass.swift */; };
 		51E43B5C2A1570AB008AE4AC /* CompletedTimers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E43B5A2A1570AB008AE4AC /* CompletedTimers+CoreDataProperties.swift */; };
 		51E43B622A157F7B008AE4AC /* GodPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E43B612A157F7B008AE4AC /* GodPanelView.swift */; };
@@ -69,6 +73,11 @@
 		5157CAEF2A1FFABC00FBADF0 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5157CAF42A2122B900FBADF0 /* CompletedTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTimerView.swift; sourceTree = "<group>"; };
 		5157CAF62A2149A900FBADF0 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
+		5157CAF82A23D02100FBADF0 /* CoinHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinHistoryView.swift; sourceTree = "<group>"; };
+		5157CAFB2A25518F00FBADF0 /* CoinGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGraphView.swift; sourceTree = "<group>"; };
+		5157CAFD2A25519400FBADF0 /* TimeGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeGraphView.swift; sourceTree = "<group>"; };
+		5157CAFF2A25519C00FBADF0 /* ExpGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpGraphView.swift; sourceTree = "<group>"; };
+		5157CB032A2567DA00FBADF0 /* TagSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSelection.swift; sourceTree = "<group>"; };
 		517FF3552A13EE1B0047CA1E /* SmartPaws.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartPaws.xcdatamodel; sourceTree = "<group>"; };
 		5181020A2A146604004E3B48 /* DogObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogObj.swift; sourceTree = "<group>"; };
 		5181020C2A14A737004E3B48 /* TimerControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerControlView.swift; sourceTree = "<group>"; };
@@ -81,7 +90,6 @@
 		51B21A952A0535B3005883BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		51B21A972A0535B3005883BB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		51B21A9C2A0535B3005883BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		51E43B4F2A1569B8008AE4AC /* CoinHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinHistoryView.swift; sourceTree = "<group>"; };
 		51E43B592A1570AB008AE4AC /* CompletedTimers+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompletedTimers+CoreDataClass.swift"; sourceTree = "<group>"; };
 		51E43B5A2A1570AB008AE4AC /* CompletedTimers+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CompletedTimers+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		51E43B612A157F7B008AE4AC /* GodPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GodPanelView.swift; sourceTree = "<group>"; };
@@ -128,6 +136,7 @@
 				51394C422A1AC50B00D0059D /* Level5View.swift */,
 				51394C402A1AC50200D0059D /* Level10View.swift */,
 				51394C3E2A1AC4B900D0059D /* Level20View.swift */,
+				5157CAF82A23D02100FBADF0 /* CoinHistoryView.swift */,
 			);
 			path = FoodStore;
 			sourceTree = "<group>";
@@ -154,12 +163,22 @@
 			path = "Tasks&Tags";
 			sourceTree = "<group>";
 		};
+		5157CAFA2A25517700FBADF0 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				5157CAEC2A1ED12E00FBADF0 /* StatsView.swift */,
+				5157CAFB2A25518F00FBADF0 /* CoinGraphView.swift */,
+				5157CAFD2A25519400FBADF0 /* TimeGraphView.swift */,
+				5157CAFF2A25519C00FBADF0 /* ExpGraphView.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 		518102102A1559BF004E3B48 /* Store */ = {
 			isa = PBXGroup;
 			children = (
 				51393EBB2A142276005D7E8B /* StoreView.swift */,
 				51394C462A1AC5D200D0059D /* FoodStore */,
-				51E43B4F2A1569B8008AE4AC /* CoinHistoryView.swift */,
 				51F390E02A1667B000AC38BE /* StoreBlock.swift */,
 				518102112A1559DB004E3B48 /* FoodStruct.swift */,
 				5181020E2A14C7E9004E3B48 /* foodData.JSON */,
@@ -188,10 +207,9 @@
 			children = (
 				51B21A8E2A0535B3005883BB /* SmartPawsApp.swift */,
 				51B21A902A0535B3005883BB /* ContentView.swift */,
-				51394C3A2A198B9600D0059D /* SettingsView.swift */,
-				5157CAEC2A1ED12E00FBADF0 /* StatsView.swift */,
 				5157CADF2A1D490400FBADF0 /* Tasks&Tags */,
 				51394C4B2A1C118800D0059D /* DogStuff */,
+				5157CAFA2A25517700FBADF0 /* Statistics */,
 				51F390E22A167B4F00AC38BE /* HUD */,
 				518102102A1559BF004E3B48 /* Store */,
 				51393EB62A13F3AF005D7E8B /* CoreData */,
@@ -214,10 +232,12 @@
 		51F390E22A167B4F00AC38BE /* HUD */ = {
 			isa = PBXGroup;
 			children = (
+				51394C3A2A198B9600D0059D /* SettingsView.swift */,
 				5181020C2A14A737004E3B48 /* TimerControlView.swift */,
 				5157CAF42A2122B900FBADF0 /* CompletedTimerView.swift */,
 				51394C3C2A1A607E00D0059D /* HexColors.swift */,
 				51E43B612A157F7B008AE4AC /* GodPanelView.swift */,
+				5157CB032A2567DA00FBADF0 /* TagSelection.swift */,
 			);
 			path = HUD;
 			sourceTree = "<group>";
@@ -302,19 +322,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				5181020B2A146604004E3B48 /* DogObj.swift in Sources */,
-				51E43B502A1569B8008AE4AC /* CoinHistoryView.swift in Sources */,
 				517FF3562A13EE1B0047CA1E /* SmartPaws.xcdatamodeld in Sources */,
 				51394C4A2A1BF39300D0059D /* ExpBar.swift in Sources */,
 				51394C432A1AC50B00D0059D /* Level5View.swift in Sources */,
+				5157CAFE2A25519400FBADF0 /* TimeGraphView.swift in Sources */,
 				5157CAE52A1D537200FBADF0 /* Task+CoreDataProperties.swift in Sources */,
 				5157CADE2A1D407B00FBADF0 /* Dog+CoreDataClass.swift in Sources */,
+				5157CAF92A23D02100FBADF0 /* CoinHistoryView.swift in Sources */,
 				51B21A982A0535B3005883BB /* Persistence.swift in Sources */,
 				5157CAE12A1D490F00FBADF0 /* TagDetails.swift in Sources */,
 				51394C3D2A1A607E00D0059D /* HexColors.swift in Sources */,
+				5157CB002A25519C00FBADF0 /* ExpGraphView.swift in Sources */,
 				5157CAF52A2122B900FBADF0 /* CompletedTimerView.swift in Sources */,
 				5157CAED2A1ED12E00FBADF0 /* StatsView.swift in Sources */,
 				51393EBC2A142276005D7E8B /* StoreView.swift in Sources */,
+				5157CB042A2567DA00FBADF0 /* TagSelection.swift in Sources */,
 				51394C3B2A198B9600D0059D /* SettingsView.swift in Sources */,
+				5157CAFC2A25518F00FBADF0 /* CoinGraphView.swift in Sources */,
 				51F390E12A1667B000AC38BE /* StoreBlock.swift in Sources */,
 				5157CAF72A2149A900FBADF0 /* TaskRow.swift in Sources */,
 				51F390E92A16877B00AC38BE /* FoodStoreView.swift in Sources */,

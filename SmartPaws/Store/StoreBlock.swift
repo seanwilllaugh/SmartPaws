@@ -18,9 +18,16 @@ struct StoreBlock: View {
     
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(.white)
+            Rectangle()
+                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                .cornerRadius(5)
                 .frame(width: 100, height: 100)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5)
+                        .stroke(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!, lineWidth: 4)
+                )
+                .shadow(color: Color(hex: findHex(color: "French Beige", hexColors: hexColors))!, radius: 4)
+                
             VStack{
                 Text(food.name)
                     .frame(width:90, height:20)
@@ -65,6 +72,7 @@ struct StoreBlock: View {
                     .padding(.leading, 8.5)
                     
                     Button{
+                        dogobj.last!.lasthappy = Date()
                         dogobj.last!.hapiness = dogobj.last!.hapiness + Float(food.hapiness)
                         if(dogobj.last!.hapiness > 100)
                         {
@@ -77,12 +85,12 @@ struct StoreBlock: View {
                         ZStack{
                             Circle()
                                 .frame(width: 30, height: 30)
-                                .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
+                                .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
                                 .shadow(radius: 3)
                             Image(systemName: "cart.badge.plus.fill")
                                 .resizable()
                                 .frame(width: 20, height: 15)
-                                .foregroundColor(.black)
+                                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
                         }
                     }
                     .padding(.trailing, 8.5)

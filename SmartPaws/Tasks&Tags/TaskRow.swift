@@ -13,14 +13,18 @@ struct TaskRow: View {
     
     var task : Task
     
+    let hexColors = readColors()
+    
     var body: some View {
         HStack(){
             RoundedRectangle(cornerRadius: 5.0)
                 .stroke(lineWidth: 2)
                 .frame(width: 25, height: 25)
                 .cornerRadius(5.0)
+                .foregroundColor(.black)
                 .overlay {
                     Image(systemName: task.isCompleted ? "checkmark" : "")
+                        .foregroundColor(.black)
                 }
                 .onTapGesture{
                     withAnimation(.spring()) {
@@ -39,34 +43,35 @@ struct TaskRow: View {
             if(task.priority! == "Low"){
                 Circle()
                     .frame(width: 15, height: 15)
-                    .foregroundColor(.blue)
+                    .foregroundColor(Color(hex: findHex(color: "Deep Moss Green", hexColors: hexColors)))
             }else if(task.priority! == "Medium"){
                 Circle()
                     .frame(width: 15, height: 15)
-                    .foregroundColor(.yellow)
+                    .foregroundColor(Color(hex: findHex(color: "Deep Lemon", hexColors: hexColors)))
             }else if(task.priority! == "High"){
                 Circle()
                     .frame(width: 15, height: 15)
-                    .foregroundColor(.orange)
+                    .foregroundColor(Color(hex: findHex(color: "Deep Saffron", hexColors: hexColors)))
             }else if(task.priority! == "Urgent"){
                 Circle()
                     .frame(width: 15, height: 15)
-                    .foregroundColor(.red)
+                    .foregroundColor(Color(hex: findHex(color: "Deep Maroon", hexColors: hexColors)))
             }
             
             VStack(alignment: .leading){
                 Text("\(task.tasktag!)")
                     .font(.system(size: 10))
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color(hex: findHex(color: "Gray", hexColors: hexColors)))
                 
                 Text("\(task.taskstring!)")
                     .font(.system(size: 16))
                     .fontDesign(.rounded)
-                    .padding(.top, -12)
+                    .padding(.top, -11.5)
+                    .foregroundColor(Color(hex: findHex(color: "Black", hexColors: hexColors)))
                 
                 Text(task.duedate!, style: .date)
                     .font(.system(size: 10))
-                    .foregroundColor(.gray)
+                    .foregroundColor(Color(hex: findHex(color: "Gray", hexColors: hexColors)))
                     .padding(.top, -12.5)
             }
             
@@ -87,7 +92,7 @@ struct TaskRow: View {
                 try? viewContext.save()
             } label:{
                 Image(systemName: "trash")
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors)))
             }
             .padding(.trailing)
         }

@@ -32,7 +32,7 @@ struct StatsView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .fill(Color.init(red: 255/255, green: 235/255, blue: 204/255))
+                .fill(Color(hex: findHex(color: "Light French Beige", hexColors: hexColors))!)
                 .edgesIgnoringSafeArea(.all)
             
             VStack{

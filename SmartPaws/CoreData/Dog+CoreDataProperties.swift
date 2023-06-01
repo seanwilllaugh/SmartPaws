@@ -26,6 +26,7 @@ extension Dog {
     @NSManaged public var state: String?
     @NSManaged public var experience: Int16
     @NSManaged public var level: Int16
+    @NSManaged public var lasthappy: Date?
 
 }
 

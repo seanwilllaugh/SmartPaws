@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct HapinessBar: View {
-    var hapiness : Float
+    @State var hapiness : Float
+    @State var realhappiness = 0.0
+    let targetDate : Date
+    let hexColors = readColors()
     
     var body: some View {
         GeometryReader { geometry in
@@ -17,17 +20,35 @@ struct HapinessBar: View {
                     .frame(width: 100, height: 15)
                     .foregroundColor(.gray)
                 
-                Rectangle()
-                    .frame(width: calculateHapinessWidth(geometry: geometry, hapiness: hapiness), height: 15)
-                    .foregroundColor(.green)
+                if(realhappiness > 66.6)
+                {
+                    Rectangle()
+                        .frame(width: calculateHapinessWidth(hapiness: hapiness), height: 15)
+                        .foregroundColor(.green)
+                }else if(realhappiness < 66.6 && realhappiness > 33.3){
+                    Rectangle()
+                        .frame(width: calculateHapinessWidth(hapiness: hapiness), height: 15)
+                        .foregroundColor(.yellow)
+                }else{
+                    Rectangle()
+                        .frame(width: calculateHapinessWidth(hapiness: hapiness), height: 15)
+                        .foregroundColor(.red)
+                }
+                    
             }
         }
         .frame(width:100, height: 15)
-        .border(.black, width: 2)
+        .border(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, width: 2)
+        .onAppear(perform: {
+            realhappiness = calculateHapinessWidth(hapiness: hapiness)
+        })
     }
     
-    private func calculateHapinessWidth(geometry: GeometryProxy, hapiness: Float) -> CGFloat
+    private func calculateHapinessWidth(hapiness: Float) -> CGFloat
     {
-        return CGFloat(hapiness)
+        let progress = (CGFloat(targetDate.timeIntervalSinceReferenceDate-Date().timeIntervalSinceReferenceDate))/172800
+        let maxWidth = 100.0
+        
+        return progress * maxWidth
     }
 }

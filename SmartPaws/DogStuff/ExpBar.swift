@@ -10,6 +10,7 @@ import SwiftUI
 struct ExpBar: View {
     var expPoints : Int
     var level     : Int
+    let hexColors = readColors()
     
     var body: some View {
         GeometryReader { geometry in
@@ -24,7 +25,7 @@ struct ExpBar: View {
             }
         }
         .frame(width:100, height: 15)
-        .border(.black, width: 2)
+        .border(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, width: 2)
     }
     
     private func calculateExpWidth(geometry: GeometryProxy, expPoints : Int, level : Int) -> CGFloat {

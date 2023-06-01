@@ -17,9 +17,9 @@ struct TimerControlView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let hexColors = readColors()
     let config = Config(minimumValue: 0.0,
-                        maximumValue: 3600.0,
+                        maximumValue: 7200.0,
                         startValue: 0.0,
-                        totalValue: 3600.0,
+                        totalValue: 7200.0,
                         knobRadius: 10.0,
                         radius: 100.0)
     
@@ -44,32 +44,36 @@ struct TimerControlView: View {
             // Main Circle
             Circle()
                 .frame(width: config.radius * 2, height: config.radius * 2)
-                .scaleEffect(1.2)
+                .scaleEffect(1.5)
+                .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors))!)
+                .shadow(color: Color(hex: findHex(color: "French Beige", hexColors: hexColors))!, radius: 7.5)
             
             // Dashes on Timer
             Circle()
-                .stroke(Color.gray,
-                        style: StrokeStyle(lineWidth: 3, lineCap: .butt, dash: [3, 23.18]))
+                .stroke(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!,
+                        style: StrokeStyle(lineWidth: 8))
                 .frame(width: config.radius * 2, height: config.radius * 2)
+                .scaleEffect(1.45)
             
-            // Finished Progress Line
+            /* Finished Progress Line
             Circle()
                 .trim(from: 0.0, to: timerLength/config.totalValue)
                 .stroke(Color(hex: findHex(color: "White", hexColors: hexColors))!, lineWidth: 4)
                 .frame(width: config.radius * 2, height: config.radius * 2)
-                .rotationEffect(.degrees(-90))
+                .rotationEffect(.degrees(-90))*/
             
             //Current Progress line
             Circle()
                 .trim(from: 0.0, to: timerValue/config.totalValue)
-                .stroke(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors))!, lineWidth: 4)
+                .stroke(Color(hex: findHex(color: "Main Blue", hexColors: hexColors))!, lineWidth: 8)
                 .frame(width: config.radius * 2, height: config.radius * 2)
                 .rotationEffect(.degrees(-90))
+                .scaleEffect(1.45)
             
             // Knob
             Circle()
-                .fill(isTimerRunning ? Color.red : Color(hex: findHex(color: "Wood Brown", hexColors: hexColors))!)
-                .frame(width: config.knobRadius * 2, height: config.knobRadius * 2)
+                .fill(isTimerRunning ? Color.red : Color(hex: findHex(color: "Main Blue", hexColors: hexColors))!)
+                .frame(width: config.knobRadius * 2.5, height: config.knobRadius * 2.5)
                 .padding(10)
                 .offset(y: -config.radius)
                 .rotationEffect(Angle.degrees(Double(angleValue)))
@@ -77,11 +81,19 @@ struct TimerControlView: View {
                     .onChanged({ value in
                         change(location: value.location)
                     }))
+                .scaleEffect(1.45)
             
             Text(timerString)
                 .font(.system(size: 48))
                 .fontWeight(.thin)
-                .foregroundColor(.white)
+                .fontDesign(.rounded)
+                .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors))!)
+                .opacity(1.0)
+                .offset(y: -75)
+            
+            DogObj()
+                .offset(y: 30)
+            
         }
         .onReceive(timer) { _ in
             if isTimerRunning && timerValue > config.minimumValue {

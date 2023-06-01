@@ -14,20 +14,17 @@ struct DogObj: View {
     
     var body: some View {
         VStack{
-            Text("Level \(getDogLevel(dog: dogobj.last!))")
+            /*Text("Level \(getDogLevel(dog: dogobj.last!))")
                 .offset(y:40)
                 .foregroundColor(.black)
                 .fontDesign(.rounded)
                 .fontWeight(.bold)
-                .font(.system(size: 28))
-            
-            ExpBar(expPoints: Int(dogobj.last!.experience), level: Int(dogobj.last!.level))
-                .offset(y: 30)
+                .font(.system(size: 28))*/
             
             Image(getDogState(dog: dogobj.last!))
                 .resizable()
                 .frame(width:150, height: 150)
-                .offset(y: 30)
+                //.offset(y: 30)
         }
         .onAppear(perform: {
             if((dogobj.last?.lastfed!.advanced(by: 86400))! < Date())

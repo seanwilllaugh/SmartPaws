@@ -16,6 +16,7 @@
         <attribute name="hapiness" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="lastfed" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lasthappy" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="state" optional="YES" attributeType="String"/>
     </entity>

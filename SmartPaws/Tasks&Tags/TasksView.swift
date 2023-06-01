@@ -44,31 +44,39 @@ struct TasksView: View {
     var body: some View {
         ZStack{
             Rectangle()
-                .fill(Color.init(red: 255/255, green: 235/255, blue: 204/255))
+                .fill(Color(hex: findHex(color: "Light French Beige", hexColors: hexColors))!)
                 .edgesIgnoringSafeArea(.all)
             
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+            
             VStack{
                 Text("Tasks")
                     .font(.largeTitle)
                     .padding(.top)
+                    .padding(.bottom)
+                
+                Spacer()
                 
                 ZStack{
                     Rectangle()
-                        .border(.black)
                         .cornerRadius(10)
                         .frame(width: 300, height: 160)
-                        .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
+                        .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!, lineWidth: 4)
+                        )
+                    
                     VStack{
                         Text("Create a New Task")
-                            .font(.title2)
+                            .font(.title3)
                             .frame(alignment: .center)
+                            .padding(.top, 5)
                         TextField("Task", text: $task)
                             .frame(width: 250, alignment: .center)
+                            .foregroundColor(Color(hex: findHex(color: "Black", hexColors: hexColors)))
                             .cornerRadius(5)
-                            .border(.black)
-                            .padding(.top, -10)
+                            .border(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!)
                         Picker("Tag", selection: $taskTag){
                             ForEach(tagList, id: \.self){ tag in
                                 Text(tag)
@@ -93,40 +101,76 @@ struct TasksView: View {
                 } label: {
                     ZStack{
                         Rectangle()
-                            .foregroundColor(Color(hex: findHex(color: "Wood Brown", hexColors: hexColors)))
-                            .frame(width: 300, height: 20)
-                            .border(.black)
+                            .foregroundColor(Color(hex: findHex(color: "Main Blue", hexColors: hexColors)))
+                            .frame(width: 200, height: 50)
                             .cornerRadius(5)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, lineWidth: 2)
+                            )
                         Text("Save Task")
-                            .foregroundColor(.black)
+                            .font(.title)
+                            .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
                     }
                     .frame(alignment: .center)
                 }
                 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                Spacer()
                 
-                Text("Current Tasks")
-                    .font(.title2)
-        
-                ScrollView{
-                    ForEach(tasks) { task in
-                        if(task.isCompleted == false){
-                            TaskRow(task: task)
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                
+                ZStack{
+                    Rectangle()
+                        .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                        .cornerRadius(10.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!, lineWidth: 4)
+                        )
+                        .frame(width: 360, height: 220)
+                    VStack{
+                        Text("Current Tasks")
+                            .font(.title2)
+                        
+                        ScrollView{
+                            ForEach(tasks) { task in
+                                if(task.isCompleted == false){
+                                    TaskRow(task: task)
+                                }
+                            }
                         }
                     }
+                    .frame(width: 355, height: 200)
                 }
                 
+                Spacer()
                 
-                Text("Completed Tasks")
-                    .font(.title2)
-        
-                ScrollView{
-                    ForEach(tasks) { task in
-                        if(task.isCompleted){
-                            TaskRow(task: task)
+                ZStack{
+                    Rectangle()
+                        .foregroundColor(Color(hex: findHex(color: "Beige", hexColors: hexColors)))
+                        .cornerRadius(10.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(hex: findHex(color: "French Beige", hexColors: hexColors))!, lineWidth: 4)
+                        )
+                        .frame(width: 360, height: 220)
+                    
+                    VStack{
+                        Text("Completed Tasks")
+                            .font(.title2)
+                        
+                        ScrollView{
+                            ForEach(tasks) { task in
+                                if(task.isCompleted){
+                                    TaskRow(task: task)
+                                }
+                            }
                         }
                     }
+                    .frame(width: 355, height: 200)
                 }
+                
+                Spacer()
             }
         }
         .onAppear(perform: {

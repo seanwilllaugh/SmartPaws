@@ -28,6 +28,7 @@ struct Level1View: View {
                     StoreBlock(food: food)
                 }
             }
+            .frame(width: 355)
         }
     }
 }

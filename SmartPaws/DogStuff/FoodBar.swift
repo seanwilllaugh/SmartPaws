@@ -26,12 +26,14 @@ struct FoodBar: View {
             }
         }
         .frame(width:100, height: 15)
-        .border(.black, width: 2)
+        .border(Color(hex: findHex(color: "Complement Blue", hexColors: hexColors))!, width: 2)
     }
     
     private func calculateProgressWidth(geometry: GeometryProxy) -> CGFloat {
         let progress = (CGFloat(targetDate.timeIntervalSinceReferenceDate-Date().timeIntervalSinceReferenceDate))/86400
         let maxWidth = 100.0
+        
+        
         return progress * maxWidth
     }
 }
