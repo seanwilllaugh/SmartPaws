@@ -1,7 +1,7 @@
 # SmartPaws
 Study timer app mixed with tamagotchi
 
-Aunique study timer app. You'll not only track your study time, but also take care of a virtual pet dog to keep it happy. You can:
+A unique study timer app. You'll not only track your study time, but also take care of a virtual pet dog to keep it happy. You can:
 
 - Earn coins from completing study timers to:
     - Buy your dogs different foods for increased happiness
