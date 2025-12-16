@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useGameStore } from "@/stores/useGameStore";
 import { Habit } from "@/types";
@@ -27,13 +28,14 @@ export default function HabitItem({ habit }: HabitItemProps) {
       {/* Checkbox */}
       <button
         onClick={() => toggleHabit(habit.id)}
-        className={`w-5 h-5 rounded border-2 flex items-center justify-center
-                    transition-all duration-200
-                    ${
-                      habit.completedToday
-                        ? "bg-green-500 border-green-500"
-                        : "border-stone-400 hover:border-amber-500"
-                    }`}
+        className={clsx(
+          "w-5 h-5 rounded border-2",
+          "flex items-center justify-center",
+          "transition-all duration-200",
+          habit.completedToday
+            ? "bg-green-500 border-green-500"
+            : "border-stone-400 hover:border-amber-500"
+        )}
       >
         {habit.completedToday && (
           <motion.svg
@@ -56,11 +58,12 @@ export default function HabitItem({ habit }: HabitItemProps) {
 
       {/* Habit Name */}
       <span
-        className={`flex-1 text-sm transition-all duration-200 ${
+        className={clsx(
+          "flex-1 text-sm transition-all duration-200",
           habit.completedToday
             ? "text-stone-400 line-through"
             : "text-white"
-        }`}
+        )}
       >
         {habit.name}
       </span>
@@ -68,9 +71,12 @@ export default function HabitItem({ habit }: HabitItemProps) {
       {/* Delete Button */}
       <button
         onClick={() => removeHabit(habit.id)}
-        className={`text-stone-500 hover:text-red-400 transition-opacity duration-200
-                    ${showDelete ? "opacity-100" : "opacity-0"}`}
         aria-label="Delete habit"
+        className={clsx(
+          "text-stone-500 hover:text-red-400",
+          "transition-opacity duration-200",
+          showDelete ? "opacity-100" : "opacity-0"
+        )}
       >
         <svg
           className="w-4 h-4"

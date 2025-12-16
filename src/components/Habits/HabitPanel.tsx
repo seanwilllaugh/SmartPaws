@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import clsx from "clsx";
 import { useGameStore } from "@/stores/useGameStore";
 import HabitItem from "./HabitItem";
 import GrowthProgress from "./GrowthProgress";
@@ -45,17 +46,23 @@ export default function HabitPanel() {
           value={newHabitName}
           onChange={(e) => setNewHabitName(e.target.value)}
           placeholder="Add a habit..."
-          className="flex-1 px-3 py-2 bg-stone-600 text-white rounded 
-                     placeholder-stone-400 text-sm
-                     focus:outline-none focus:ring-2 focus:ring-amber-500"
           maxLength={30}
+          className={clsx(
+            "flex-1 px-3 py-2",
+            "bg-stone-600 text-white rounded",
+            "placeholder-stone-400 text-sm",
+            "focus:outline-none focus:ring-2 focus:ring-amber-500"
+          )}
         />
         <button
           type="submit"
           disabled={!newHabitName.trim()}
-          className="px-4 py-2 bg-amber-600 text-white rounded font-medium
-                     hover:bg-amber-500 disabled:opacity-50 disabled:cursor-not-allowed
-                     transition-colors text-sm"
+          className={clsx(
+            "px-4 py-2",
+            "bg-amber-600 text-white rounded font-medium",
+            "hover:bg-amber-500 transition-colors text-sm",
+            "disabled:opacity-50 disabled:cursor-not-allowed"
+          )}
         >
           Add
         </button>

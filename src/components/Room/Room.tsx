@@ -1,18 +1,26 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Pet from "./Pet";
 import Plant from "./Plant";
 import { useGameStore } from "@/stores/useGameStore";
 
 export default function Room() {
+  const [hasMounted, setHasMounted] = useState(false);
   const calculateDecay = useGameStore((state) => state.calculateDecay);
   const checkDailyReset = useGameStore((state) => state.checkDailyReset);
 
+  // Wait for client-side mount before running date-dependent logic
   useEffect(() => {
-    calculateDecay();
-    checkDailyReset();
-  }, [calculateDecay, checkDailyReset]);
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (hasMounted) {
+      calculateDecay();
+      checkDailyReset();
+    }
+  }, [hasMounted, calculateDecay, checkDailyReset]);
 
   return (
     <div className="relative w-full h-96 rounded-lg overflow-hidden">
